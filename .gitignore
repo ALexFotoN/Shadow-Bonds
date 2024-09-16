@@ -1,1 +1,14 @@
-
+     # Unity
+     Temp/
+     Library/
+     *.[Ll]og
+     [Tt]ests/.
+     [Tt]ests */.
+     *.userprefs
+     *.sln
+     *.suo
+     *.csproj
+     *.pidb
+     *.user
+     *.unityproj
+     *.booproj
