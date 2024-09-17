@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Enemy : MonoBehaviour
+public class Enem : MonoBehaviour
 {
     public Transform player;
     public GameObject Player;
