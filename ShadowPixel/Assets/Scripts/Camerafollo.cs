@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camerafollow : MonoBehaviour
+public class amerafollow : MonoBehaviour
 {
   private Transform Player;
 
