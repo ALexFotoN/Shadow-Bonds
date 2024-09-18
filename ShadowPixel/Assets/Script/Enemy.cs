@@ -12,7 +12,20 @@ public class Enem : MonoBehaviour
     
     private bool ontriger;
     private float distance;
-    
+    private EnemySpawner spawner;
+
+    private void Start()
+    {
+        spawner = FindAnyObjectByType<EnemySpawner>();
+    }
+
+    private void OnDestroy()
+    {
+        if (spawner != null)
+        {
+            spawner.OnEnemyDestroyed();
+        }
+    }
 
     // private void Update()
     // {
@@ -21,7 +34,7 @@ public class Enem : MonoBehaviour
     //         
     //     transform.position = Vector2.MoveTowards(this.transform.position, Player.transform.position, speed * Time.deltaTime);
     // }
-    
+
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Player"))
