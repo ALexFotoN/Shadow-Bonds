@@ -6,39 +6,62 @@ using UnityEngine;
 
 public class option : MonoBehaviour
 {
-    private bool PauseGame;
-    public GameObject PauseMenu;
+    public GameObject Pause;
+    public GameObject Option;
 
-
-    public void Start()
+    private void Start()
     {
-        PauseMenu.SetActive(false);
+        Pause.SetActive(false);
+        Option.SetActive(false);
     }
 
-    public void Resume()
+    private void Update()
     {
-        PauseMenu.SetActive(false);
-        PauseGame = false;
-    }
-
-    public void Pause()
-    {
-        PauseMenu.SetActive(true);
-        PauseGame = true;
-    }
-
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyUp(KeyCode.A))
         {
-            if (PauseGame)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
+            Pause.SetActive(true);
         }
+        
     }
+
+   
+
+
+    // public bool PauseGame;
+    // public GameObject PauseMenu;
+    //
+    //
+    // public void Start()
+    // {
+    //     PauseMenu.SetActive(false);
+    // }
+    //
+    // public void Resume()
+    // {
+    //     PauseMenu.SetActive(false);
+    //     PauseGame = false;
+    // }
+    //
+    // public void Pause()
+    // {
+    //     PauseMenu.SetActive(true);
+    //     PauseGame = true;
+    // }
+    //
+    // public void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.Escape))
+    //     {
+    //         if (PauseGame)
+    //         {
+    //             Resume();
+    //         }
+    //         else
+    //         {
+    //             Pause();
+    //         }
+    //     }
+    // }
+
+
 }

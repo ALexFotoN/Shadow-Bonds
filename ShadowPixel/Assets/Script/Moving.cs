@@ -11,7 +11,7 @@ public class Moving : MonoBehaviour
   
   public void MoveUp()
   {
-    if (Input.GetKey(KeyCode.W))
+    if (Input.GetKey(KeyCode.UpArrow))
     {
       Vector3 newPosition = Player.transform.position + Vector3.up * Time.deltaTime * moveSpeed;
       Player.transform.position = newPosition;
@@ -20,7 +20,7 @@ public class Moving : MonoBehaviour
 
   public void MoveRight()
   {
-    if (Input.GetKey(KeyCode.D))
+    if (Input.GetKey(KeyCode.RightArrow))
     {
       Vector3 newPosition = Player.transform.position + Vector3.right * Time.deltaTime * moveSpeed;
       Player.transform.position = newPosition;
@@ -29,7 +29,7 @@ public class Moving : MonoBehaviour
   
   public void MoveLeft()
   {
-    if (Input.GetKey(KeyCode.A))
+    if (Input.GetKey(KeyCode.LeftArrow))
     {
       Vector3 newPosition = Player.transform.position + Vector3.left * Time.deltaTime * moveSpeed;
       Player.transform.position = newPosition;
@@ -38,7 +38,7 @@ public class Moving : MonoBehaviour
   
   public void MoveDown()
   {
-    if (Input.GetKey(KeyCode.S))
+    if (Input.GetKey(KeyCode.DownArrow))
     {
       Vector3 newPosition = Player.transform.position + Vector3.down * Time.deltaTime * moveSpeed;
       Player.transform.position = newPosition;
