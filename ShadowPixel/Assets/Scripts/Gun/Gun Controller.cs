@@ -6,16 +6,17 @@ public class ShootingController : MonoBehaviour
     public Transform gunTransform;
     public GameObject bulletPrefab;
     public Transform firePoint;
-    public int maxAmmo = 10;
     public float reloadTime = 2f;
     public float bulletSpeed = 20f;
 
-    private int currentAmmo;
+    public int maxAmmoInMagazine = 10;
+    public int totalAmmo = 50;
+    private int currentAmmoInMagazine;
     private bool isReloading = false;
 
     void Start()
     {
-        currentAmmo = maxAmmo;
+        currentAmmoInMagazine = maxAmmoInMagazine;
     }
 
     void Update()
@@ -25,7 +26,12 @@ public class ShootingController : MonoBehaviour
         if (isReloading)
             return;
 
-        if (currentAmmo <= 0)
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Reload();
+        }
+
+        if (currentAmmoInMagazine <= 0)
         {
             StartCoroutine(Reload());
             return;
@@ -47,21 +53,44 @@ public class ShootingController : MonoBehaviour
 
     void Shoot()
     {
-        if (currentAmmo > 0)
+        if (currentAmmoInMagazine > 0)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.velocity = firePoint.right * bulletSpeed;
-            currentAmmo--;
+            Debug.Log("Ammo left: " + currentAmmoInMagazine);
+            currentAmmoInMagazine--;
+        }
+        else
+        {
+            Debug.Log("Mag empty, reloading");
         }
     }
 
     IEnumerator Reload()
     {
         isReloading = true;
-        Debug.Log("Reloading...");
         yield return new WaitForSeconds(reloadTime);
-        currentAmmo = maxAmmo;
         isReloading = false;
+        
+        int ammoNeeded = maxAmmoInMagazine - currentAmmoInMagazine;
+        
+        if (totalAmmo >= ammoNeeded)
+        {
+            totalAmmo -= ammoNeeded;
+            currentAmmoInMagazine = maxAmmoInMagazine;
+        }
+        else
+        {
+            currentAmmoInMagazine += totalAmmo;
+            totalAmmo = 0;
+        }
+
+        if (totalAmmo <= 0)
+        {
+            Debug.Log("No ammo left");
+        }
+
+        Debug.Log("Ammo left: " + totalAmmo);
     }
 }

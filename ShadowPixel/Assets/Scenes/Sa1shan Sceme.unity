@@ -1314,9 +1314,10 @@ MonoBehaviour:
   gunTransform: {fileID: 376375010}
   bulletPrefab: {fileID: 856040522}
   firePoint: {fileID: 1701062611}
-  maxAmmo: 10
   reloadTime: 2
   bulletSpeed: 10
+  maxAmmoInMagazine: 10
+  totalAmmo: 50
 --- !u!1 &448212226
 GameObject:
   m_ObjectHideFlags: 0
@@ -2971,7 +2972,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1701062611}
   - component: {fileID: 1701062610}
-  - component: {fileID: 1701062612}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -3048,21 +3048,6 @@ Transform:
   - {fileID: 110684425}
   m_Father: {fileID: 376375010}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1701062612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1701062608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04838ff7e6ce42f468d18a2e355265fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 856040522}
-  firePoint: {fileID: 1701062611}
-  bulletSpeed: 10
 --- !u!1 &1741582315
 GameObject:
   m_ObjectHideFlags: 0
