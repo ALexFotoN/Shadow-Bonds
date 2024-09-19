@@ -7,52 +7,58 @@ public class Moving : MonoBehaviour
 {
   public GameObject Player;
   public Camera Camera;
-  public float moveSpeed = 0.5f;
+  public float moveSpeed;
   
-  public void MoveUp()
+  private Rigidbody2D rb;
+  private Vector2 moveVelocity;
+  
+  void Start()
   {
-    if (Input.GetKey(KeyCode.UpArrow))
-    {
-      Vector3 newPosition = Player.transform.position + Vector3.up * Time.deltaTime * moveSpeed;
-      Player.transform.position = newPosition;
-    }
+    rb = GetComponent<Rigidbody2D>();
+  }
+  
+  public void Move() 
+  {
+    Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+    moveVelocity = moveInput.normalized * moveSpeed;
   }
 
-  public void MoveRight()
+  private void FixedUpdate()
   {
-    if (Input.GetKey(KeyCode.RightArrow))
-    {
-      Vector3 newPosition = Player.transform.position + Vector3.right * Time.deltaTime * moveSpeed;
-      Player.transform.position = newPosition;
-    }
+    rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
   }
   
-  public void MoveLeft()
-  {
-    if (Input.GetKey(KeyCode.LeftArrow))
-    {
-      Vector3 newPosition = Player.transform.position + Vector3.left * Time.deltaTime * moveSpeed;
-      Player.transform.position = newPosition;
-    }
-  }
-  
-  public void MoveDown()
-  {
-    if (Input.GetKey(KeyCode.DownArrow))
-    {
-      Vector3 newPosition = Player.transform.position + Vector3.down * Time.deltaTime * moveSpeed;
-      Player.transform.position = newPosition;
-    }
-  }
-
-  
-
   private void Update()
   {
-    MoveUp();
-    MoveRight();
-    MoveLeft();
-    MoveDown();
+    Move();
     
   }
+  //
+  // public void MoveRight() // движение вправо
+  // {
+  //   if (Input.GetKeyDown(KeyCode.RightArrow))
+  //   {
+  //     rb.velocity = new Vector2(moveSpeed, 0);
+  //   }
+  // }
+  //
+  // public void MoveLeft() // движение влево 
+  // {
+  //   if (Input.GetKeyDown(KeyCode.LeftArrow))
+  //   {
+  //     rb.velocity = new Vector2(-moveSpeed, 0);
+  //   }
+  // }
+  //
+  // public void MoveDown()  // движение вниз 
+  // {
+  //   if (Input.GetKeyDown(KeyCode.DownArrow))
+  //   {
+  //     rb.velocity = new Vector2(0, -moveSpeed);
+  //   }
+  // }
+
+  
+
+ 
 }

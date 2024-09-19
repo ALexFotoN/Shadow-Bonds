@@ -9,6 +9,8 @@ public class option : MonoBehaviour
     public GameObject pause;
     public GameObject Option;
 
+    private bool ispause;
+
     private void Start()
     {
         pause.SetActive(false);
@@ -17,16 +19,33 @@ public class option : MonoBehaviour
 
     private void Update()
     {
-           Pause();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (ispause)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+       
     }
-
+    
     public void Pause()
     {
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            pause.SetActive(true);
-            Time.timeScale = 0;
-        }
+        pause.SetActive(true);
+        Time.timeScale = 0f; 
+        ispause = true;
+    }
+
+    public void Resume()
+    {
+        pause.SetActive(false);
+        Option.SetActive(false);
+        Time.timeScale = 1f;
+        ispause = false;
     }
     
 }

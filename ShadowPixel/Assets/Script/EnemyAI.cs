@@ -7,7 +7,6 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     public GameObject player;
-    public Collider2D Collider;
     
     private NavMeshAgent _navMeshAgent;
     
