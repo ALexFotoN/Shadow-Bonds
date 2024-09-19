@@ -17,17 +17,42 @@ public class EnemyAI : MonoBehaviour
         _navMeshAgent.updateRotation = false;
         _navMeshAgent.updateUpAxis = false;
     }
-    
-    private void Update()
+
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        Chasting();
+        if (other.gameObject.tag == "Player")
+        {
+            StartCoroutine(FollowPlayerRoutine());
+        }
     }
-    private void Chasting()
+    
+    IEnumerator FollowPlayerRoutine()
     {
-        { 
+        while (true)
+        {
             _navMeshAgent.SetDestination(player.transform.position);
+            yield return new WaitForEndOfFrame();
         }
     }
 
+    // private void Update()
+    // {
+    //     Chasting();
+    // }
+    // private void Chasting()
+    // {
+    //     { 
+    //         _navMeshAgent.SetDestination(player.transform.position);
+    //     }
+    // }
+
+    // private void OnTriggerEnter(Collider collision)
+    // {
+    //     if (collision.gameObject.CompareTag("Player"))
+    //     {
+    //         StartCoroutine(FollowPlayerRoutine());
+    //     }
+    // }
+    
    
 }
