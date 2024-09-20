@@ -38,7 +38,7 @@ public class COnflict : MonoBehaviour
         if (playerHp == 0)
         {
             
-            SceneManager.LoadScene("End");
+            SceneManager.LoadScene("StartMenu");
         }
     }
 
@@ -72,12 +72,12 @@ public class COnflict : MonoBehaviour
 
     public void Hearts()
     {
-        for (int i = 9; i >= 0; i--)
+        for (int i = 4; i >= 0; i--)
         {
             if (playerHp == i)
             {
-                Image heart = hearts[i];
-                heart.gameObject.SetActive(false);
+                var heartly = hearts[i];
+                heartly.gameObject.SetActive(false);
             }
         }
         
