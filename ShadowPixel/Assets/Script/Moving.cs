@@ -5,24 +5,22 @@ using UnityEngine;
 
 public class Moving : MonoBehaviour
 {
-  public GameObject Player;
-  public Camera Camera;
   public float moveSpeed;
   
   private Rigidbody2D rb;
   private Vector2 moveVelocity;
-  public GameObject left;
-  public GameObject right;
-  public GameObject up;
-  public GameObject down;
+  // public GameObject left;
+  // public GameObject right;
+  // public GameObject up;
+  // public GameObject down;
   
   void Start()
   {
     rb = GetComponent<Rigidbody2D>();
-    left.SetActive(false);
-    right.SetActive(false);
-    up.SetActive(false);
-    down.SetActive(true);
+    // left.SetActive(false);
+    // right.SetActive(false);
+    // up.SetActive(false);
+    // down.SetActive(true);
   }
   
   public void Move() 
@@ -39,55 +37,55 @@ public class Moving : MonoBehaviour
   private void Update()
   {
     Move();
-    Left();
-    Right();
-    Up();
-    Down();
+    // Left();
+    // Right();
+    // Up();
+    // Down();
   }
 
-  public void Left()
-  {
-    if (Input.GetKeyDown(KeyCode.A))
-    {
-      left.SetActive(true);
-      right.SetActive(false);
-      up.SetActive(false);
-      down.SetActive(false);
-    }
-  }
-
-  public void Right()
-  {
-    if (Input.GetKeyDown(KeyCode.D))
-    {
-      left.SetActive(false);
-      right.SetActive(true);
-      up.SetActive(false);
-      down.SetActive(false);
-    }
-  }
-  
-  public void Up()
-  {
-    if (Input.GetKeyDown(KeyCode.W))
-    {
-      left.SetActive(false);
-      right.SetActive(false);
-      up.SetActive(true);
-      down.SetActive(false);
-    }
-  }
-
-  public void Down()
-  {
-    if (Input.GetKeyDown(KeyCode.S))
-    {
-      left.SetActive(false);
-      right.SetActive(false);
-      up.SetActive(false);
-      down.SetActive(true);
-    }
-  }
+  // public void Left()
+  // {
+  //   if (Input.GetKeyDown(KeyCode.A))
+  //   {
+  //     left.SetActive(true);
+  //     right.SetActive(false);
+  //     up.SetActive(false);
+  //     down.SetActive(false);
+  //   }
+  // }
+  //
+  // public void Right()
+  // {
+  //   if (Input.GetKeyDown(KeyCode.D))
+  //   {
+  //     left.SetActive(false);
+  //     right.SetActive(true);
+  //     up.SetActive(false);
+  //     down.SetActive(false);
+  //   }
+  // }
+  //
+  // public void Up()
+  // {
+  //   if (Input.GetKeyDown(KeyCode.W))
+  //   {
+  //     left.SetActive(false);
+  //     right.SetActive(false);
+  //     up.SetActive(true);
+  //     down.SetActive(false);
+  //   }
+  // }
+  //
+  // public void Down()
+  // {
+  //   if (Input.GetKeyDown(KeyCode.S))
+  //   {
+  //     left.SetActive(false);
+  //     right.SetActive(false);
+  //     up.SetActive(false);
+  //     down.SetActive(true);
+  //   }
+  // }
   
   //
   // public void MoveRight() // движение вправо

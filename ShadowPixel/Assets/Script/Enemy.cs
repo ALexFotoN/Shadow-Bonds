@@ -7,8 +7,7 @@ using UnityEngine.Serialization;
 public class Enem : MonoBehaviour
 {
     public GameObject Player;
-    public float speed;
-    public float radius;
+    // public float speed;
     public GameObject left;
     public GameObject right;
     public GameObject up;
@@ -17,7 +16,7 @@ public class Enem : MonoBehaviour
     // private bool onradius;
     // private bool isMoving;
     // private bool ontriger;
-    // private float distance;
+    private float distance;
     // private EnemySpawner spawner;
     
     private void Start()
@@ -43,7 +42,7 @@ public class Enem : MonoBehaviour
     {
         // distance = Vector2.Distance(transform.position, Player.transform.position);
         // Vector2 direction = Player.transform.position - transform.position;
-        // if (distance < 20)
+        // if (distance < 50)
         // {
         //     transform.position = Vector2.MoveTowards(this.transform.position, Player.transform.position, speed * Time.deltaTime);
         // }
